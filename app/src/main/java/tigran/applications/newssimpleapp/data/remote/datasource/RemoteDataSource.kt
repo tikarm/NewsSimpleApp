@@ -6,7 +6,7 @@ import tigran.applications.newssimpleapp.data.remote.exception.ApiException
 
 private const val API_KEY = "649f61a3-e5bd-4044-8021-d3edb05b0b56"
 
-class RemoteDataSource(
+open class RemoteDataSource(
     private val apiInterface: ApiInterface
 ) {
     @Throws(ApiException::class)

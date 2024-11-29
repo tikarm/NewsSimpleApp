@@ -37,6 +37,15 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    packaging {
+        resources {
+            excludes += "META-INF/LICENSE.md"
+            excludes += "META-INF/LICENSE"
+            excludes += "META-INF/NOTICE"
+            excludes += "META-INF/LICENSE-notice.md"  // Add this line to exclude LICENSE-notice.md
+        }
+    }
 }
 
 dependencies {
@@ -51,9 +60,16 @@ dependencies {
     implementation(libs.roomRuntime)
     implementation(libs.roomKtx)
     implementation(libs.retrofitGson)
+    implementation(libs.core.ktx)
     kapt(libs.roomKotlin)
 
     testImplementation(libs.junit)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+
+    androidTestImplementation(libs.mockk.android)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.espresso.test)
 }
