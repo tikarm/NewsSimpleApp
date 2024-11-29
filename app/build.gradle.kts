@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
@@ -43,11 +44,14 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.retrofit)
     implementation(libs.retrofitGson)
+    implementation(libs.roomRuntime)
+    implementation(libs.roomKtx)
+    implementation(libs.retrofitGson)
+    kapt(libs.roomKotlin)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
